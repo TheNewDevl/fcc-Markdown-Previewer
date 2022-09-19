@@ -4,10 +4,10 @@ import {useState} from "react";
 import {marked} from 'marked';
 import Editor from "./components/Editor/Editor";
 import hljs from "highlight.js"
+import DOMPurify from "dompurify";
 
 function App() {
     const [areaValue, setAreaValue] = useState<string>("")
-
 
     const handleOutput = (areaValue: string) => {
         marked.setOptions({
@@ -18,7 +18,8 @@ function App() {
                 return hljs.highlight(code, {language}).value;
             },
         })
-        setAreaValue(() => marked.parse(areaValue))
+
+        setAreaValue(() => DOMPurify.sanitize(marked.parse(areaValue)))
     }
 
     return (

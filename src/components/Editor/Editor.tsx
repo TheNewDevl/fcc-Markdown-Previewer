@@ -40,7 +40,7 @@ TABLES of course:
 1. ...
 
 Also images :
-![JS illustration](https://cdn.pixabay.com/photo/2019/10/03/12/12/javascript-4523100_960_720.jpg)
+![JS illustration](../../../public/js-img.png)
 `;
 
 const Editor = ({parser}: EditorProps) => {
