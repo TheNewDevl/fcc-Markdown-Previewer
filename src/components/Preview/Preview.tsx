@@ -1,22 +1,23 @@
 import {Window} from "../Window/Window";
 import {useEffect, useRef} from "react";
+import "./Preview.scss"
 
 type PreviewProps = {
     output: string
 }
 
 const Preview = ({output}: PreviewProps) => {
-    const areaRef = useRef<HTMLDivElement>(null)
+    const previewRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (areaRef.current) {
-            areaRef.current.innerHTML = output
+        if (previewRef.current) {
+            previewRef.current.innerHTML = output
         }
     }, [output])
 
     return (
         <Window windowTitle="Preview">
-            <div ref={areaRef} id="preview"></div>
+            <div ref={previewRef} id="preview"></div>
         </Window>
     )
 }
