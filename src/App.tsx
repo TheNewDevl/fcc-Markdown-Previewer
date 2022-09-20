@@ -5,29 +5,31 @@ import {marked} from 'marked';
 import Editor from "./components/Editor/Editor";
 import hljs from "highlight.js"
 import DOMPurify from "dompurify";
+import {Att} from "./components/Atb/Atb";
 
 function App() {
-    const [areaValue, setAreaValue] = useState<string>("")
+  const [areaValue, setAreaValue] = useState<string>("")
 
-    const handleOutput = (areaValue: string) => {
-        marked.setOptions({
-            breaks: true,
-            gfm: true,
-            highlight: function (code, lang) {
-                const language = hljs.getLanguage(lang) ? lang : 'javascript';
-                return hljs.highlight(code, {language}).value;
-            },
-        })
+  const handleOutput = (areaValue: string) => {
+    marked.setOptions({
+      breaks: true,
+      gfm: true,
+      highlight: function (code, lang) {
+        const language = hljs.getLanguage(lang) ? lang : 'javascript';
+        return hljs.highlight(code, {language}).value;
+      },
+    })
 
-        setAreaValue(() => DOMPurify.sanitize(marked.parse(areaValue)))
-    }
+    setAreaValue(() => DOMPurify.sanitize(marked.parse(areaValue)))
+  }
 
-    return (
-        <div className="App">
-            <Editor parser={handleOutput}/>
-            <Preview output={areaValue}/>
-        </div>
-    )
+  return (
+    <div className="App">
+      <Editor parser={handleOutput}/>
+      <Preview output={areaValue}/>
+      <Att/>
+    </div>
+  )
 }
 
 export default App

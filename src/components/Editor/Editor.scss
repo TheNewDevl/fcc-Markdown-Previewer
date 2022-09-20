@@ -1,3 +1,10 @@
 textarea {
+  height: 100%;
+  position: relative;
+  border: none;
+  resize: none;
+}
 
+::-webkit-resizer {
+  display: none;
 }

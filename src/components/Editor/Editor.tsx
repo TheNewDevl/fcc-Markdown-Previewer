@@ -3,7 +3,7 @@ import {ChangeEvent, useEffect, useRef} from "react";
 import "./Editor.scss"
 
 type EditorProps = {
-    parser: (value: string) => void
+  parser: (value: string) => void
 }
 
 const initialEditorValue = `# This is a Markdown Previewer
@@ -45,23 +45,24 @@ Also images :
 `;
 
 const Editor = ({parser}: EditorProps) => {
-    const textAreaRef = useRef<HTMLTextAreaElement>(null)
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
-    useEffect(() => {
-        if (textAreaRef.current) {
-            textAreaRef.current.value = initialEditorValue
-            parser(textAreaRef.current.value)
-        }
-    }, [])
+  useEffect(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.value = initialEditorValue
+      parser(textAreaRef.current.value)
+    }
+  }, [])
 
-    return (
-        <Window windowTitle="Editor">
-            <textarea ref={textAreaRef}
-                      onChange={(e: ChangeEvent<HTMLTextAreaElement>) => parser(e.target.value)}
-                      name="editor" id="editor"
-                      placeholder="Enter your markdown text here"></textarea>
-        </Window>
-    )
+  return (
+    <Window windowTitle="Editor">
+      <textarea ref={textAreaRef}
+                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => parser(e.target.value)}
+                name="editor" id="editor"
+                placeholder="Enter your markdown text here">
+      </textarea>
+    </Window>
+  )
 }
 
 export default Editor

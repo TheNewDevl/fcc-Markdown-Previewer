@@ -1,0 +1,17 @@
+.author {
+  background: #fff;
+  width: max-content;
+  font-size: 8px;
+  position: fixed;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.author a {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #007eff;
+  font-size: 10px;
+  text-decoration: underline;
+}
