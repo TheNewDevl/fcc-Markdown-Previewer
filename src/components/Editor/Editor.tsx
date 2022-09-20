@@ -1,5 +1,6 @@
 import {Window} from "../Window/Window";
 import {ChangeEvent, useEffect, useRef} from "react";
+import "./Editor.scss"
 
 type EditorProps = {
     parser: (value: string) => void

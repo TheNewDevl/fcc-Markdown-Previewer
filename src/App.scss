@@ -4,5 +4,18 @@
 }
 
 body {
+  margin: 0;
   padding: 2em;
+}
+
+.App {
+  height: calc(100vh - 4em);
+  position: relative;
+}
+
+.App {
+  @media screen and (min-width: 1200px) {
+    gap: 1em;
+    display: flex;
+  }
 }
