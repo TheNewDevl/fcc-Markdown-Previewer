@@ -11,7 +11,7 @@ import { act } from "react-dom/test-utils";
 import { fireEvent } from "@testing-library/react";
 import { createRoot } from "react-dom/client";
 
-describe("Editor component suite test ", function () {
+describe("Window component suite test ", function () {
   let container: null | HTMLDivElement;
   beforeEach(() => {
     // setup a DOM element as a render target
