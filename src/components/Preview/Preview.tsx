@@ -8,7 +8,6 @@ type PreviewProps = {
 
 const Preview = ({ output }: PreviewProps) => {
   const previewRef = useRef<HTMLDivElement>(null);
-  console.log(output);
   useEffect(() => {
     if (previewRef.current) {
       previewRef.current.innerHTML = output;
