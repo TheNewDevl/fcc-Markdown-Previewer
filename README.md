@@ -1,8 +1,9 @@
 # fcc-Markdown-Previewer
 
-freeCodeCamp front-end challenge
+![Build & Test workflow](https://github.com/TheNewDevl//fcc-Markdown-Previewer/actions/workflows/node.js.yml/badge.svg)
+100% Code Cov
 
-# Frontend Mentor - Interactive card details form solution
+MarkDown Previewer
 
 ## Table of contents
 
