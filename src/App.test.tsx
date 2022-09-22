@@ -1,9 +1,8 @@
 /** @vitest-environment jsdom */
-import { fireEvent } from "@testing-library/react";
-
 // @ts-ignore
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
+import { fireEvent } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import App from "./App";
 import { act } from "react-dom/test-utils";
@@ -62,7 +61,6 @@ function sum(a, b)
         `,
       },
     });
-    console.log(document.querySelector("#preview")!.innerHTML);
     expect(document.querySelector("#preview")!.innerHTML).toBe(
       '<pre><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">a, b</span>)\n</code></pre>\n'
     );

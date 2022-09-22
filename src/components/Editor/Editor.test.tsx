@@ -1,12 +1,14 @@
 /**
  * @vitest-environment jsdom
  */
+// @ts-ignore
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import { afterEach, beforeEach, describe, expect, it, vitest } from "vitest";
 import Editor from "./Editor";
-import { unmountComponentAtNode, render } from "react-dom";
 import { act } from "react-dom/test-utils";
 import { fireEvent } from "@testing-library/react";
+import { createRoot } from "react-dom/client";
 
 const initialEditorValue = `# This is a Markdown Previewer
 ## You can write here all markdown you want and see the result in real time.
@@ -47,39 +49,34 @@ Also images :
 `;
 describe("Editor component suite test ", function () {
   let container: null | HTMLDivElement;
+  const parser = vitest.fn();
+
   beforeEach(() => {
     // setup a DOM element as a render target
     container = document.createElement("div");
     document.body.appendChild(container);
+
+    act(() => {
+      createRoot(container as Element).render(<Editor parser={parser} />);
+    });
   });
 
   afterEach(() => {
     // cleanup on exiting
-    unmountComponentAtNode(container as Element);
-    container!.remove();
+    document.body.removeChild(container!);
     container = null;
+    parser.mockClear();
   });
 
-  it("should render", () => {
-    act(() => {
-      render(<Editor parser={() => {}} />, container as Element);
-    });
-  });
+  it("should render", () => {});
 
   it("should render with initial value", function () {
-    act(() => {
-      render(<Editor parser={() => {}} />, container as Element);
-    });
     expect(document.querySelector("textarea")!.value).toEqual(
       initialEditorValue
     );
   });
 
   it("should update value and call parser two times ( first render and when fire event )", function () {
-    const parser = vitest.fn();
-    act(() => {
-      render(<Editor parser={parser} />, container as Element);
-    });
     fireEvent.change(document.querySelector("textarea")!, {
       target: { value: "new text" },
     });

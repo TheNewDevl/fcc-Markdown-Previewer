@@ -31,13 +31,6 @@ describe("Window component suite test ", function () {
   });
 
   const windowTitle: string = "window title";
-  it("should render", () => {
-    act(() => {
-      createRoot(container as Element).render(
-        <Window windowTitle={windowTitle} />
-      );
-    });
-  });
 
   it("can display the given title", function () {
     const h1 = document.querySelector("section header h1");
