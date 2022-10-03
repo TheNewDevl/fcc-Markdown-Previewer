@@ -35,8 +35,8 @@ MarkDown Previewer
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/TheNewDevl/fcc-Markdown-Previewer)
-- Live Site URL: [Add live site URL here](htts://fcc-markdown-previewer-theta.vercel.app/)
+- [Solution URL](https://github.com/TheNewDevl/fcc-Markdown-Previewer)
+- [Live Site URL](https://fcc-markdown-previewer-theta.vercel.app)
 
 ## My process
 
